@@ -12,4 +12,7 @@ h2 {{title}}
             input.form-control#zip(type='text', name='zip', ng-model='zip', ng-pattern='/^[0-9]{5}$/', required, autofocus)
           button.btn.btn-success(type='submit', ng-show='conditionsForm.$valid', ng-click='getConditions()') Weather Me!
   .col-xs-9
-    {{temperature}}
+    h3 {{obervationTime}}
+    h3 {{temperature}}
+    h3 {{feelsLike}}
+    img(src="{{iconUrl}}")

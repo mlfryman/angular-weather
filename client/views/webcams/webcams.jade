@@ -1,0 +1,19 @@
+.row
+  .col-xs-12
+    h3 {{title}}
+.row
+  .col-xs-3
+    form(novalidate, name='webcamsForm', role='form')
+      .form-group
+        label(for='zip') Zip Code
+        input.form-control#zip(name='zip', type='text', ng-model='zip', ng-pattern='/^[0-9]{5}$/', required, autofocus)
+      .form-group
+        button.btn.btn-success(ng-show='webcamsForm.$valid', ng-click='getWebcams()') View Webcams
+  .col-xs-9
+.row(ng-show='webcams')
+  .col-xs-12
+    .panel.panel-default
+      .panel-body
+        .webcam(ng-repeat='webcam in webcams')
+          img(ng-src='{{webcam.WIDGETCURRENTIMAGEURL}}')
+          h6 Neighborhood: {{webcam.neighborhood || webcam.city}}

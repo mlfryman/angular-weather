@@ -9,11 +9,15 @@ html(ng-app='weather', lang='en')
     link(href='/vendor/fontawesome/css/font-awesome.css', rel='stylesheet')
     link(href='/index.css', rel='stylesheet')
   body(ng-controller='MainController')
+    include nav
+    .container
+      .row
+        .col-xs-12
+          block content
     .container
       .row
         .col-xs-12
           h1 {{title}}
-
           #container(ng-view)
 
     script(src='/vendor/angular/angular.js')
@@ -21,5 +25,9 @@ html(ng-app='weather', lang='en')
     script(src='/vendor/jquery/dist/jquery.js')
     script(src='/vendor/bootstrap/dist/js/bootstrap.js')
     script(src='/index.js')
+    script(src='/nav.js')
     script(src='/views/conditions/conditions.js')
+    script(src='/views/webcams/webcams.js')
+    script(src='/views/tenday/tenday.js')
+    script(src='/components/wu.js')
 

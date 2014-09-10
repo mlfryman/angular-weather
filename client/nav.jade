@@ -1,0 +1,13 @@
+.navbar.navbar-default
+  .container
+    .navbar-header
+      a.navbar-brand(href='/') Angular Weather
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+    #navbar-main.navbar-collapse.collapse
+      ul.nav.navbar-nav.navbar-right.nav-pills
+        li: a(href='/#/conditions') Weather
+        li: a(href='/#/webcams') Traffic
+        li: a(href='/#/tenday') 10-Day Forecast
