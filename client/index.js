@@ -1,17 +1,14 @@
 (function(){
   'use strict';
-
-  angular.module('mean-template', [])
-  .controller('MainController', ['$scope', '$interval', function($scope, $interval){
-    var occupations = ['Superheroes', 'Ninjas', 'Pirates', 'Vampires', 'Aliens', 'Dragons', 'Sharks with Lasers', 'Transformers', 'I am Groot'];
-
-    $scope.title = 'Mean Template';
-    $scope.occupation = occupations[0];
-
-    $interval(function(){
-      var rnd = Math.floor(Math.random() * occupations.length);
-      $scope.occupation = occupations[rnd];
-    }, 500);
+//('weather', []) creates new module; ('weather') uses existing module, ('weather', [dependency]) brings in dependencies
+  angular.module('weather', ['ngRoute'])
+  .config(['$routeProvider', function($routeProvider){
+    $routeProvider
+    .when('/conditions', {templateUrl:'/views/conditions/conditions.html', controller:'ConditionsController'}) // route: 'name of URL', {templateUrl:'________', controller:'________'})
+    .otherwise({redirectTo:'/conditions'}); // if you give me a URL that don't recognize, I'll return this
+  }])// configuration for weather module
+  .controller('MainController', ['$scope', function($scope){
+    $scope.title = 'Weather';
   }]);
 })();
 
